@@ -1,11 +1,9 @@
-
 .container {
     display: flex;
     position: relative;
-   
     margin-top: 50px;
-    
 }
+
 .card-container {
     display: flex;
     gap: 30px;
@@ -18,13 +16,19 @@
 .btn-custom {
   background-color: #141313;
   color: rgb(226, 232, 236);
-  
-  font-family:Copperplate, Papyrus, fantasy;
+  font-family: Copperplate, Papyrus, fantasy;
   font-size: 30px;
   margin-top: 30px;
 }
 
-
+.mycarou {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    margin-top: 50px;
+}
 
 .card {
     width: 195px;
@@ -40,14 +44,12 @@
     position: relative; 
 }
 
-
-.img {
+.imgc {
     height: 97%;
     position: absolute;
     transition: 0.2s ease-in-out;
     z-index: 1;
 }
-
 
 .textBox {
     opacity: 0;
@@ -59,7 +61,6 @@
     transition: 0.2s ease-in-out;
     z-index: 2;
 }
-
 
 .textBox .text {
     font-weight: bold;
@@ -78,12 +79,11 @@
     color: lightgrey;
 }
 
-
 .card:hover .textBox {
     opacity: 1;
 }
 
-.card:hover .img {
+.card:hover .imgc {
     height: 65%;
     filter: blur(7px);
     animation: float 3s infinite;
@@ -94,19 +94,105 @@
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*Fin de Navbar*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Pacifico;
+    width: 100%;
+}
+
+.extra {
+  height: 480px;
+}
+
+/*BG*/
+
+.home {
+  background: url('https://lh3.googleusercontent.com/-N972KISC-6U/VzfJCFuU_YI/AAAAAAAAOsc/hWSMUzacdmQvCr_H4Zy2mYYcUtkkvZRsACCo/s2048/DSC_0297-blancoynegro.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.about {
+  background: url('https://lh3.googleusercontent.com/-AcWr5_cFuKM/Vzhh0t3QCJI/AAAAAAAAOtE/BYyyhvdCgP0YEIScNmoVewX-O1QmxiHuQCCo/s2048/LOGO5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  padding-top: 60px;
+}
+
+.portfolio {
+  background-color: #ebebeb;
+  background-size: cover;
+  padding-top: 60px;
+}
+
+.contact {
+  background-color: #ebebeb;
+  background-size: cover;
+  width: 100%; 
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+/* 🔥 Renamed duplicate */
+.home .container2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.navbar .container2 {
+  display: block;
+}
+
+.navbar-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 25px;
 }
 
 
-
-
-
-
+.container3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}

@@ -1,0 +1,23 @@
+$(function() {
+
+  $(".scroll").click(function(event) {
+    event.preventDefault();
+
+    var target = $(this.hash);
+    if (target.length) {
+      $("html,body").animate({
+        scrollTop: target.offset().top
+      }, 500);
+    }
+
+    $('.navbar-default a').removeClass('selected');
+    $(this).addClass('selected');
+  });
+
+  $('button.pop').click(function(e) {
+    e.preventDefault();
+  });
+
+  $('button.pop').popover();
+
+});
