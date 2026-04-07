@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shoes - SHOEBAZAR</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <style>
+    .nav-pills .nav-link {
+      color: white;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: #ba2222;
+    }
+  </style>
+</head>
+
+<body class="shoes-page">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container2">
+
+      <!-- LEFT: Nav Links (desktop) -->
+      <div class="navbar-left">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link active">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span id="cart-count"
+                class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER: Brand Logo -->
+      <a class="navbar-brand" href="index.html">Shoebazar</a>
+
+      <!-- RIGHT: Search + Mobile Toggler -->
+      <div class="navbar-right">
+        <form class="d-none d-lg-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInput"
+            placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+
+
+
+      <!-- Mobile Collapse Menu -->
+      <div class="collapse navbar-mobile-menu" id="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link active">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span
+                class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+        <form class="nav-search d-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInputMobile"
+            placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+
+
+
+
+  <div class="shoes-wrapper container pt-5 mt-5">
+    <h2 class="text-center text-white mb-4" style="font-size: 3rem;">Collection</h2>
+
+    <!-- Category Tabs -->
+    <div style="display:block;">
+      <div class="category-tabs-wrapper">
+        <div class="category-tabs" id="category-tabs">
+          <button class="cat-tab active" data-category="men" type="button">👟 Men</button>
+          <button class="cat-tab" data-category="women" type="button">👠 Women</button>
+          <button class="cat-tab" data-category="kids" type="button">🧒 Kids</button>
+        </div>
+      </div>
+
+
+      <div class="row mb-4 mt-4">
+        <div class="col-md-6 text-white text-center text-md-start mb-3 mb-md-0">
+          <label>Sort by Price: </label>
+          <select id="price-sort" class="form-select w-auto d-inline-block bg-dark text-white border-secondary ms-2">
+            <option value="none">Default</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </select>
+        </div>
+        <div class="col-md-6 text-white text-center text-md-end">
+          <label>Brand: </label>
+          <select id="company-filter"
+            class="form-select w-auto d-inline-block bg-dark text-white border-secondary ms-2">
+            <option value="all">All Brands</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="newbalance">New Balance</option>
+            <option value="converse">Converse</option>
+            <option value="vans">Vans</option>
+            <option value="puma">Puma</option>
+          </select>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Container for dynamic product cards -->
+    <div id="product-container"
+      style="display:flex; flex-direction:row; flex-wrap:wrap; justify-content:center; gap:22px; width:100%; padding-bottom:60px;">
+      <!-- Generated via JS -->
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

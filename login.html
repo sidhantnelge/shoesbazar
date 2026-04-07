@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - SHOEBAZAR</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+</head>
+
+<body class="login-page">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container2">
+
+      <!-- LEFT: Nav Links (desktop) -->
+      <div class="navbar-left">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span id="cart-count" class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link active">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER: Brand Logo -->
+      <a class="navbar-brand" href="index.html">Shoebazar</a>
+
+      <!-- RIGHT: Search + Mobile Toggler -->
+      <div class="navbar-right">
+        <form class="d-none d-lg-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInput" placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Collapse Menu -->
+      <div class="collapse navbar-mobile-menu" id="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link active">Login</a></li>
+        </ul>
+        <form class="nav-search d-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInputMobile" placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="login-wrapper">
+    <div class="login-container">
+      <h2 id="login-title" class="text-center text-white mb-4" style="font-family: inherit;">Welcome Back</h2>
+      <form>
+        <div class="mb-3">
+          <label for="username" class="form-label text-white" style="font-family: sans-serif;">Email or Phone Number</label>
+          <input type="text" class="form-control custom-input" id="username" placeholder="Email or Phone number" style="font-family: sans-serif;">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label text-white" style="font-family: sans-serif;">Password</label>
+          <input type="password" class="form-control custom-input" id="password" placeholder="Password" style="font-family: sans-serif;">
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-3 login-btn">Log In</button>
+        
+        <div class="text-center my-3 text-white">OR</div>
+        
+        <button type="button" onclick="handleGoogleLogin()" class="btn btn-light w-100 google-btn d-flex align-items-center justify-content-center gap-2">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="G" style="width:18px;">
+          Continue with Google
+        </button>
+      </form>
+      
+      <div id="toggle-link" class="text-center mt-3 text-white small">
+        Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

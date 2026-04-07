@@ -99,11 +99,6 @@
     100% { transform: translateY(0); }
 }
 
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-}
-
 .navbar .navbar-collapse {
   text-align: center;
 }
@@ -116,13 +111,7 @@ h1 {
   font-size: 2em;
 }
 
-.navbar-brand {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin: 0 auto;
-}
+/* navbar-brand positioning handled by .navbar .container2 block below */
 
 /*Fin de Navbar*/
 
@@ -142,13 +131,22 @@ body {
 /*BG*/
 
 .home {
-  background: url('https://lh3.googleusercontent.com/-N972KISC-6U/VzfJCFuU_YI/AAAAAAAAOsc/hWSMUzacdmQvCr_H4Zy2mYYcUtkkvZRsACCo/s2048/DSC_0297-blancoynegro.jpg') no-repeat center center fixed;
+  background: url('https://lh3.googleusercontent.com/-N972KISC-6U/VzfJCFuU_YI/AAAAAAAAOsc/hWSMUzacdmQvCr_H4Zy2mYYcUtkkvZRsACCo/s2048/DSC_0297-blancoynegro.jpg') no-repeat center center;
   background-size: cover;
-  height: 100%;
+  
+  height: 100vh;
   width: 100%;
-  padding-top: 60px;
-}
 
+  margin-top: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+  z-index: 1;
+}
 .about {
   background: url('https://lh3.googleusercontent.com/-AcWr5_cFuKM/Vzhh0t3QCJI/AAAAAAAAOtE/BYyyhvdCgP0YEIScNmoVewX-O1QmxiHuQCCo/s2048/LOGO5.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -170,22 +168,90 @@ body {
   padding-bottom: 80px;
 }
 
-/* 🔥 Renamed duplicate */
-.home .container2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
+/* 🔥 Renamed duplicate */
+
 
 .navbar .container2 {
-  display: block;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+  flex-wrap: nowrap;
 }
 
-.navbar-nav {
+/* Logo centered absolutely */
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Left nav links */
+.navbar-left {
+  display: flex !important;
+  align-items: center;
+}
+
+.navbar-left .navbar-nav {
   display: flex !important;
   flex-direction: row !important;
-  gap: 25px;
+  flex-wrap: nowrap !important;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-left .nav-item {
+  white-space: nowrap;
+}
+
+/* Right: search + toggler */
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Mobile: show nav links in collapsed menu vertically */
+@media (max-width: 991px) {
+  .navbar-brand {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+  .navbar .container2 {
+    flex-wrap: wrap;
+  }
+  .navbar-left {
+    display: none;
+  }
+  .navbar-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+  }
+  .navbar-mobile-menu .navbar-nav {
+    flex-direction: column !important;
+    gap: 5px;
+  }
+  .navbar-mobile-menu .nav-search {
+    margin-top: 10px;
+  }
 }
 
 .headingbrnd  {
@@ -208,6 +274,7 @@ body {
   font-size: 30px;
   padding: 5px 50px;
 }   
+
 
 
 
@@ -296,4 +363,223 @@ body {
     0% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0); }
+}
+
+/* --- Added for Login & Shoes pages --- */
+.login-page {
+  background-color: #121212;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); 
+  margin-top: 60px;
+}
+
+.login-container {
+  background: rgba(49, 49, 49, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.custom-input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.custom-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #f82525;
+  color: white;
+  box-shadow: none;
+}
+
+.login-btn {
+  border-radius: 10px;
+  background-color: #ba2222;
+  border: none;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #9f1c1c;
+}
+
+.google-btn {
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-weight: 500;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.shoes-page {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.shoes-wrapper {
+  display: block !important;  /* prevent flex inheritance from body/page */
+  padding-top: 20px;
+  width: 100%;
+}
+
+/* ── Category Tabs ── */
+.category-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0 20px 0;
+}
+
+.category-tabs {
+  display: inline-flex;        /* shrink-wraps to content, never stretches full height */
+  flex-direction: row;         /* buttons side by side */
+  align-items: center;         /* prevent vertical stretch */
+  gap: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50px;
+  padding: 5px;
+  border: 1px solid rgba(255,255,255,0.12);
+  height: 54px;                /* fixed height keeps the pill compact */
+}
+
+.cat-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 44px;                /* explicit height — no more vertical stretching */
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  color: #aaa;
+  border: none;
+  border-radius: 40px;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.cat-tab:hover {
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+
+.cat-tab.active {
+  background: #ba2222;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 3px 14px rgba(186,34,34,0.45);
+}
+
+/* ── Product Grid ── */
+.product-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+  gap: 22px;
+  width: 100%;
+}
+
+/* Shoe product card */
+.shoe-card {
+  width: 200px;
+  min-height: 300px;
+  background: #232323;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.shoe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.shoe-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.shoe-card .shoe-info {
+  padding: 12px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shoe-card h5 {
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px 0;
+}
+
+.shoe-card .brand-label {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.shoe-card .price-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f5f5f5;
+  margin-bottom: 10px;
+}
+
+.shoe-card .add-btn {
+  background: #ba2222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-family: sans-serif;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.shoe-card .add-btn:hover {
+  background: #9a1a1a;
 }

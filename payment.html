@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment - SHOEBAZAR</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <style>
+    body { background-color: #121212; color: white; display: flex; align-items: center; justify-content: center; height: 100vh;}
+    .payment-box { background: rgba(49, 49, 49, 0.8); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; width: 100%; max-width: 450px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container2">
+
+      <!-- LEFT: Nav Links (desktop) -->
+      <div class="navbar-left">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span id="cart-count" class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER: Brand Logo -->
+      <a class="navbar-brand" href="index.html">Shoebazar</a>
+
+      <!-- RIGHT: Search + Mobile Toggler -->
+      <div class="navbar-right">
+        <form class="d-none d-lg-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInput" placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Collapse Menu -->
+      <div class="collapse navbar-mobile-menu" id="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shoes.html" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders <span class="badge bg-danger rounded-pill">0</span></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+        <form class="nav-search d-flex" role="search" onsubmit="handleSearch(event)">
+          <input class="form-control me-2 bg-dark text-white border-secondary" type="search" id="searchInputMobile" placeholder="Search shoes..." aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="payment-box mt-5">
+    <h3 class="text-center mb-4" style="font-family: inherit;">Checkout</h3>
+    <form onsubmit="finishPayment(event)">
+      <div class="mb-3">
+        <label class="form-label" style="font-family: sans-serif;">Cardholder Name</label>
+        <input type="text" class="form-control custom-input" style="font-family: sans-serif;" required placeholder="John Doe">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" style="font-family: sans-serif;">Card Number</label>
+        <input type="text" class="form-control custom-input" style="font-family: sans-serif;" required placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+      </div>
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label class="form-label" style="font-family: sans-serif;">Expiry</label>
+          <input type="text" class="form-control custom-input" style="font-family: sans-serif;" required placeholder="MM/YY">
+        </div>
+        <div class="col-6 mb-3">
+          <label class="form-label" style="font-family: sans-serif;">CVV</label>
+          <input type="text" class="form-control custom-input" style="font-family: sans-serif;" required placeholder="123" maxlength="3">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 login-btn mt-3" style="font-size: 1.1rem; padding: 10px;">Pay Now</button>
+      <a href="orders.html" class="d-block text-center mt-3 text-secondary text-decoration-none" style="font-family: sans-serif;">Cancel</a>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="script.js"></script>
+  <script>
+    function finishPayment(event) {
+      event.preventDefault();
+      alert("Payment Successful! Thank you for ordering from Shoebazar.");
+      if (typeof clearCart === 'function') {
+        clearCart();
+      }
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
